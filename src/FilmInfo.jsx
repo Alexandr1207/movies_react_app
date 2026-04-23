@@ -2,7 +2,7 @@ import { Box, Button, Card, CardMedia, Container, CssBaseline, IconButton, Typog
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useState, useEffect, useContext } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { FilterContext } from "./FiltersContext";
 
 
@@ -61,6 +61,8 @@ export default function FilmInfo() {
     const [details, setDetails] = useState(null);
     const [credits, setCredits] = useState(null);
     const token = useContext(FilterContext);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         if (token) {
@@ -85,7 +87,7 @@ export default function FilmInfo() {
                 <Box sx={{ padding: '24px' }}>
                     <Box sx={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                         <Typography variant="h4" gutterBottom>{movieData.title} ({details.release_date?.split('-')[0]})</Typography>
-                        <Button variant='text' startIcon={<ArrowBackIcon />} href="/" sx={{ marginBottom: '16px' }}>Назад</Button>  
+                        <Button variant='text' startIcon={<ArrowBackIcon />} onClick={() => navigate("/")} sx={{ marginBottom: '16px' }}>Назад</Button>  
                     </Box>
                     <Typography variant="h6" gutterBottom>Рейтинг: {movieData.rating}</Typography>
                     <Typography variant="body1" gutterBottom>{details.overview}</Typography>

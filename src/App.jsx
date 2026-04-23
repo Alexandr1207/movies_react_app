@@ -7,7 +7,7 @@ import { useState, useContext, useEffect } from "react";
 import { FilterContext } from "./FiltersContext";
 import matrixImg from './assets/matrix.jpg';
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, HashRouter } from "react-router-dom";
 import FilmInfo from "./FilmInfo";
 
 function Header(){
@@ -274,7 +274,7 @@ function App() {
 
 
 	return(
-		<BrowserRouter>
+		<HashRouter>
 			<CssBaseline />
 			<Container maxWidth={false} disableGutters sx={{ height: '100vh'}}>
 				<Routes>
@@ -319,7 +319,7 @@ function App() {
 					<Route path="/movie/:id" element={<FilmInfo />}/>
 				</Routes>
 			</Container>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
 

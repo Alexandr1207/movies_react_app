@@ -74,8 +74,6 @@ export default function FilmInfo() {
     if (!details) {
         return <Typography variant="h6" sx={{ padding: '24px' }}>Загрузка...</Typography>;
     }
-    console.log(details);
-    console.log(credits);
 
     return(
         <>
